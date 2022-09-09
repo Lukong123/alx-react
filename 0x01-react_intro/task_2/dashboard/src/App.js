@@ -1,6 +1,7 @@
 import logo from './holberton-logo.jpg';
 import { getFullYear, getFooterCopy} from './utils';
 import './App.css';
+import './Notifications.js'
 
 function App() {
   return (
@@ -11,9 +12,10 @@ function App() {
         </div>
         <div className="App-body">
           <p> Login to access the full dashboard </p>
-          <label htmlFor="email">Enter Email</label>
+
+          <label htmlFor="email"> Enter Email: </label>
           <input type="email"></input>
-          <label>Enter Password</label>
+          <label htmlFor="password">  Enter Password: </label>
           <input type="password"></input>
           <button>OK</button>
         </div>

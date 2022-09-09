@@ -32,3 +32,16 @@
   font-style: italic;
   text-align: center;
 }
+
+input {
+  height:20px
+}
+
+button {
+  height: 25px;
+}
+
+input::after {
+  content: "\a";
+  white-space: pre;
+}
