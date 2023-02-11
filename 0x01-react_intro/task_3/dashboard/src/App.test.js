@@ -8,5 +8,18 @@ describe('App Components', () => {
         expect(app).toBeDefined();
     });
 
-    it
+    it('renders a div with class name App-header', () => {
+        const app = shallow(<App />);
+        expect(app.find('.App-header')).toBeDefined();
+    });
+
+    it('renders a div with class name App-body', () => {
+        const app = shallow(<App />);
+        expect(app.find('.App-body')).toBeDefined();
+    });
+
+    it('renders a div with class name App-footer', () => {
+        const app = shallow(<App />);
+        expect(app.find('.App-footer')).toBeDefined();
+    });
 })
