@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1> School dashboard</h1>
-        <body> 
+        <body className='App-body'> 
           <p>Login to access the full dashboard</p>
           <label htmlFor="email">Email: </label> 
           <input name="email" type="email" id="email"></input> <br></br>
