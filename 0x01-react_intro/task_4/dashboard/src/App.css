@@ -38,3 +38,9 @@
   font-style: italic;
   text-align: center;
 }
+
+.App-body label, .App-body input, .App-body button{
+  float: left;
+  justify-content: space-between;
+
+}
