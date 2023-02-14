@@ -1,51 +1,5 @@
-// const path = require('path');
-
-// module.exports = {
-//     mode: 'production',
-//     entry: {
-//         main: path.resolve(__dirname, './js/dashboard_main.js'),
-//       },
-//       output: {
-//         filename: 'bundle.js',
-//         path: path.resolve(__dirname, 'dist')
-//       },
-//       devServer: {
-//         hot: true,
-//         contentBase: path.resolve("./dist"),
-//         compress: true,
-//         port: 3000,
-//       },
-
-//       module: {
-//         rules: [
-//           {
-//             test: /\.css$/i,
-//             use: ["style-loader", "css-loader"],
-//           },
-//           {
-//             test: /\.(gif|png|jpe?g|svg)$/i,
-//             use: [
-//               'file-loader',
-//               {
-//                 loader: 'image-webpack-loader',
-//                 options: {
-//                   bypassOnDebug: true, // webpack@1.x
-//                   disable: true, // webpack@2.x and newer
-//                 },
-//               },
-//             ],
-//           },
-//           {
-//             test: /\.(js|jsx)$/,
-//             exclude: /node_modules/,
-//             loader: "babel-loader",
-//           },
-//         ]
-//       },
-      
-// }
-
 const path = require("path");
+
 
 module.exports = {
   mode: "development",
@@ -59,19 +13,14 @@ module.exports = {
     hot: true,
     contentBase: path.resolve("./dist"),
     compress: true,
-    port: 8564,
+    port: 3000,
   },
-  performance: {
-    maxAssetSize: 1000000,
-    maxEntrypointSize: 1000000,
-  },
+  // performance: {
+  //   maxAssetSize: 1000000,
+  //   maxEntrypointSize: 1000000,
+  // },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-      },
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
@@ -79,9 +28,9 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          "file-loader",
+          'file-loader',
           {
-            loader: "image-webpack-loader",
+            loader: 'image-webpack-loader',
             options: {
               bypassOnDebug: true, // webpack@1.x
               disable: true, // webpack@2.x and newer
@@ -89,6 +38,11 @@ module.exports = {
           },
         ],
       },
-    ],
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
+    ]
   },
 };
