@@ -5,6 +5,11 @@ import Notifications from './Notifications';
 
 
 describe('Notification Component', () => {
+
+    beforeEach(() => {
+        wrapper = shallow(<Notifications />)
+    })
+
     it('renders without crashing', () => {
         const notifications = shallow(<Notifications />);
         expect(notifications).toBeDefined();
@@ -12,11 +17,15 @@ describe('Notification Component', () => {
 
     it('renders three list items', () => {
         const notifications = shallow(<Notifications />);
-        expect(notifications.find('li')).to.have.lengthOf(3);
+        expect(notifications.find('NotificationItem')).to.have.lengthOf(3);
     });
 
     it('renders text', () => {
         const notifications = shallow(<Notifications />);
         expect(notifications). find('Here is the list of notifications').toBeDefined();
+    });
+
+    it('verifies the first NotificationItem element renders the correct html', () => {
+        expect(wrapper.find("NotificationItem").first().html().toEqual('<li ata-notification-type="default">New course available</li>'))
     });
 })

@@ -1,0 +1,12 @@
+.Notifications {
+    padding: 5em;
+    border: 1px dashed red;
+}
+
+.Notifications > ul > .default {
+    color: blue;
+}
+
+.Notifications > ul > .urgent {
+    color: red;
+}
