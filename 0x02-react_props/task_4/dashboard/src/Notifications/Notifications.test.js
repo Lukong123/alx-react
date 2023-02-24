@@ -15,17 +15,40 @@ describe('Notification Component', () => {
         expect(notifications).toBeDefined();
     });
 
-    it('renders three list items', () => {
-        const notifications = shallow(<Notifications />);
-        expect(notifications.find('NotificationItem')).to.have.lengthOf(3);
-    });
+    it("<Notifications /> renders NotificationItems", () => {
+        wrapper.setProps({displayDrawer: true});
+        expect(wrapper.find('NotificationItem')).not.toHaveLength(0);
+      });
+    
+      it("<Notifications /> render the text 'Here is the list of notifications'", () => {
+        wrapper.setProps({displayDrawer: true});
+        expect(wrapper.contains(<p>Here is the list of notifications</p>)).toEqual(true);
+      });
+    
+      it("verify that the first NotificationItem element renders the right html", () => {
+        wrapper.setProps({displayDrawer: true});
+        expect(wrapper.find("NotificationItem").first().html()).toEqual('<li data-notification-type="default">New course available</li>');
+      });
+    
+      it("menu item is being displayed when displayDrawer is false", () => {
+        expect(wrapper.find('.menuItem')).toHaveLength(1);
+      });
+    
+      it("div.Notifications is not being displayed when displayDrawer is false", () => {
+        expect(wrapper.find('.Notifications')).toHaveLength(0);
+      });
+});
 
-    it('renders text', () => {
-        const notifications = shallow(<Notifications />);
-        expect(notifications). find('Here is the list of notifications').toBeDefined();
-    });
+describe('Testing <Notification /> ', () => {
+    let wrapper;
 
-    it('verifies the first NotificationItem element renders the correct html', () => {
-        expect(wrapper.find("NotificationItem").first().html().toEqual('<li ata-notification-type="default">New course available</li>'))
+    beforeEach(() => {
+        wrapper = shallow(<Notifications displayDrawer={true}/>);
     });
+    it ('menu item is being displayed when displayDrawer is true', () => {
+        expect(wrapper.find('.menuItem')).toHaveLength(1);
+    });
+    it ('div.Notifications is being displayed when displayDrawer is true', () => {
+        expect(wrapper.find('.Notifications')).toHaveLength(1);
+    })
 })

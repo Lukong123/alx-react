@@ -1,6 +1,10 @@
 .Notifications {
-    padding: 5em;
+    padding: 3em;
     border: 1px dashed red;
+    position: absolute;
+    top: 21px;
+    right: 7px;
+    margin-top: 13px;
 }
 
 .Notifications > ul > .default {
@@ -9,4 +13,10 @@
 
 .Notifications > ul > .urgent {
     color: red;
+}
+
+.menuItem{
+    position: absolute;
+    top: 7px;
+    right: 7px;
 }
