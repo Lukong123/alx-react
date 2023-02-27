@@ -29,9 +29,18 @@ class Notifications extends React.Component {
         <div className='Notifications'>
             <p>Here is the list of notifications</p>
             <button 
-            style={{float: "right", }}>
+            style={{color: '#3a3a3a',
+            fontWeight: 'bold',
+            background: 'none',
+            border: 'none',
+            fontSize: '15px',
+            position: 'absolute',
+            right: '3px',
+            top: '3px',
+            cursor: 'pointer',
+            outline: 'none', }}
                 arial-label = "Close"
-                onClick={console.log('Close  button has been clicked')}
+                onClick={console.log('Close  button has been clicked')}>
                 <img src={closeIcon} alt='Close'></img>
 
             </button>

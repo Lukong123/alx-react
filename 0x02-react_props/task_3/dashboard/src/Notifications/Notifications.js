@@ -12,11 +12,15 @@ function Notifications () {
             right: '3px',
             top: '3px',
             cursor: 'pointer',
-            outline: 'none', }}>
+            outline: 'none',
+            background: 'none',
+            border: 'none',
+         }}
                 aria-label="Close"
       onClick={(e) => {
         console.log('Close button has been clicked');
       }}
+      >
                 <img src={closeIcon} alt='Close'></img>
 
             </button>

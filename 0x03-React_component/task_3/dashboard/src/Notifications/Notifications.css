@@ -1,5 +1,5 @@
 .Notifications {
-    padding: 3em;
+    padding: 1em;
     border: 1px dashed red;
     position: absolute;
     top: 21px;
@@ -7,12 +7,20 @@
     margin-top: 13px;
 }
 
-.Notifications > ul > .default {
-    color: blue;
+li[data-priority="default"] {
+	color: blue;
 }
 
-.Notifications > ul > .urgent {
-    color: red;
+li[data-priority="urgent"] {
+	color: red;
+}
+
+li[data-notification-type="default"] {
+	color: blue;
+}
+
+li[data-notification-type="urgent"] {
+	color: red;
 }
 
 .menuItem{

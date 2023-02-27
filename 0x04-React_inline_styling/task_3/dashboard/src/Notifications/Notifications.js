@@ -22,13 +22,13 @@ class Notifications extends React.Component {
     render() {
       return (
         <>
-
-        <div className='menuItem'>
-            Your notifications
-        </div>
-        {this.props.displayDrawer? 
+        
+        {!this.props.displayDrawer? 
         <div className={css(notificationStyles.notifications)}>
-            <p>Here is the list of notifications</p>
+          Your notifications
+          </div>
+          :
+          <div className={css(notificationStyles.notifications)}>
             <button 
             style={{color: '#3a3a3a',
             fontWeight: 'bold',
@@ -49,13 +49,13 @@ class Notifications extends React.Component {
             </button>
 
             {
-              this.props.listNotifications.length !== 0 ?
+              this.props.listNotifications.length != 0 ?
                 <p>Here is the list of notifications</p>
               : null
             }
             <ul>
               {
-                this.props.listNotifications.length === 0 ?
+                this.props.listNotifications.length == 0 ?
                   <NotificationItem type="default" value="No new notification for now" />
                 : null
               }
@@ -66,19 +66,32 @@ class Notifications extends React.Component {
                   value={val.value}
                   html={val.html}
                   key={val.id}
+                  markAsRead ={this.markAsRead}
+                  id={val.id}
                 />
                 })
               }
             </ul>
         </div>
-        : 
-        null
-        }
+    }
         </>
 );
 
     };
 };
+
+const opacityAnim = {
+  '0%': {opacity: 0.5},
+  '100%': {opacity: 1}
+};
+
+const bounceAnim = {
+  '0%': {transform: 'translateY(0px)'},
+  '33%': {transform: 'translateY(-5px)'},
+  '66%': {transform: 'translateY(5px)'},
+  '100%': {transform: 'translateY(0px)'},
+
+}
 
 const notificationStyles = StyleSheet.create({
   notifications: {
