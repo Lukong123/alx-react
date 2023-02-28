@@ -15,7 +15,6 @@ function Notifications ({displayDrawer, listNotifications}) {
         </div>
         {displayDrawer? 
         <div className='Notifications'>
-            <p>Here is the list of notifications</p>
             <button 
             style={{color: '#3a3a3a',
             fontWeight: 'bold',

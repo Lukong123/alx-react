@@ -2,8 +2,7 @@ import React from 'react';
 import './Notifications.css';
 import closeIcon from '../assets/close-icon.png';
 import NotificationItem from './NotificationItem';
-import PropTypes from 'prop-types';
-
+import PropeTypes from 'prop-types';
 import NotificationItemShape from './NotificationItemShape';
 
 class Notifications extends React.Component {
@@ -24,7 +23,6 @@ class Notifications extends React.Component {
         </div>
         {this.props.displayDrawer? 
         <div className='Notifications'>
-            <p>Here is the list of notifications</p>
             <button 
             style={{color: '#3a3a3a',
             fontWeight: 'bold',
@@ -60,6 +58,8 @@ class Notifications extends React.Component {
                   value={val.value}
                   html={val.html}
                   key={val.id}
+                  markAsRead={this.markAsRead}
+                  id={val.id}
                 />
                 })
               }
@@ -71,17 +71,17 @@ class Notifications extends React.Component {
         </>
 );
 
-    };
-};
+    }
+}
 
 Notifications.defaultProps = {
-    thisdisplayDrawer: false,
-    listNotificatons: []
+    displayDrawer: false,
+    listNotifications: []
 };
 
 Notifications.propTypes = {
-    displayDrawer: PropTypes.bool,
-    listNotificatons: PropTypes.arrayOf(NotificationItemShape)
+    displayDrawer: PropeTypes.bool,
+    listNotifications: PropeTypes.arrayOf(NotificationItemShape)
 };
 
 export default Notifications;

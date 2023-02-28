@@ -63,6 +63,8 @@ class Notifications extends React.Component {
                   value={val.value}
                   html={val.html}
                   key={val.id}
+                  markAsRead={this.markAsRead}
+                  id={val.id}
                 />
                 })
               }
@@ -78,13 +80,13 @@ class Notifications extends React.Component {
 };
 
 Notifications.defaultProps = {
-    thisdisplayDrawer: false,
-    listNotificatons: []
+    displayDrawer: false,
+    listNotifications: []
 };
 
 Notifications.propTypes = {
     displayDrawer: PropTypes.bool,
-    listNotificatons: PropTypes.arrayOf(NotificationItemShape)
+    listNotifications: PropTypes.arrayOf(NotificationItemShape)
 };
 
 export default Notifications;

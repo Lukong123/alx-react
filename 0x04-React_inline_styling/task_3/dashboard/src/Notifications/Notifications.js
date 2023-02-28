@@ -96,11 +96,10 @@ const bounceAnim = {
 const notificationStyles = StyleSheet.create({
   notifications: {
     padding: '3em',
-    border: '1px dashed red',
     position: 'absolute',
     top: '21px',
     right: '7px',
-    marginTop: '13px',
+    marginTop: '3px',
     zIndex: '100',
     '@media (max-width: 900px)': {
       width: '100%',
@@ -130,13 +129,13 @@ const notificationStyles = StyleSheet.create({
 })
 
 Notifications.defaultProps = {
-    thisdisplayDrawer: false,
-    listNotificatons: []
+    displayDrawer: false,
+    listNotifications: []
 };
 
 Notifications.propTypes = {
     displayDrawer: PropTypes.bool,
-    listNotificatons: PropTypes.arrayOf(NotificationItemShape)
+    listNotifications: PropTypes.arrayOf(NotificationItemShape)
 };
 
 export default Notifications;

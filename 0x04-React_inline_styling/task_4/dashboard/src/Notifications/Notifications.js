@@ -23,12 +23,11 @@ class Notifications extends React.Component {
       return (
         <>
 
-        <div className='menuItem'>
+        <div className={css(notificationStyles.not)}>
             Your notifications
         </div>
         {this.props.displayDrawer? 
         <div className={css(notificationStyles.notifications)}>
-            <p>Here is the list of notifications</p>
             <button 
             style={{color: '#3a3a3a',
             fontWeight: 'bold',
@@ -80,6 +79,18 @@ class Notifications extends React.Component {
     };
 };
 
+const opacityAnim = {
+  '0%': { opacity: 0.5 },
+  '100%': { opacity: 1}
+};
+
+const bounceAnim = {
+  '0%': { transform: 'translateY(0px)' },
+  '33%': { transform: 'translateY(-5px)'},
+  '66%': { transform: 'translateY(5px)'},
+  '100%': { transform: 'translateY(0px)'},
+};
+
 const notificationStyles = StyleSheet.create({
   notifications: {
     padding: '3em',
@@ -88,7 +99,7 @@ const notificationStyles = StyleSheet.create({
     top: '21px',
     right: '7px',
     marginTop: '13px',
-    zIndex: '100',
+    // zIndex: '100',
     '@media (max-width: 900px)': {
       width: '100%',
       padding: '0px',
@@ -100,7 +111,16 @@ const notificationStyles = StyleSheet.create({
     }
   },
   menuItem: {
-    textAlign: 'right'
+    position: 'relative',
+    zIndex: '100',
+    float: 'right',
+    backgroundColor: '#fff8f8',
+    ':hover': {
+      cursor: 'pointer',
+      animationName: [opacityAnim, bounceAnim],
+      animationDuration: '1s, 0.5s',
+      animationIterationCount: '3'
+    }
   },
   ul: {
     '@media (max-width: 900px)': {
@@ -112,18 +132,21 @@ const notificationStyles = StyleSheet.create({
       position: 'relative',
       float: 'right',
     }
+  },
+  not: {
+    float: 'right',
   }
 
 })
 
 Notifications.defaultProps = {
-    thisdisplayDrawer: false,
-    listNotificatons: []
+    displayDrawer: false,
+    listNotifications: []
 };
 
 Notifications.propTypes = {
     displayDrawer: PropTypes.bool,
-    listNotificatons: PropTypes.arrayOf(NotificationItemShape)
+    listNotifications: PropTypes.arrayOf(NotificationItemShape)
 };
 
 export default Notifications;

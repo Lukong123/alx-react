@@ -1,13 +1,10 @@
-.App {
-    text-align: center;
-    padding: 1em;
-  }
+
 
 .App-body{
   border-top: 4px solid red;
 
-  padding-top: 40px;
-  margin-top: -3em;
+  padding-top: 20px;
+  margin-top: -5em;
 }
 
   .App-body p{
@@ -15,11 +12,7 @@
     /* margin-right: 900px; */
   }
   
-  .App-body label, .App-body input, .App-body button{
-    float: left;
-    justify-content: space-between;
-  
-  }
+
 
   .App-body input {
     margin: 0 16px 0 8px;
