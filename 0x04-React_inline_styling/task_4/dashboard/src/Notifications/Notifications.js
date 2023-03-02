@@ -23,7 +23,7 @@ class Notifications extends React.Component {
       return (
         <>
 
-        <div className={css(notificationStyles.not)}>
+        <div className={css(notificationStyles.menuItem)}>
             Your notifications
         </div>
         {this.props.displayDrawer? 
@@ -99,7 +99,7 @@ const notificationStyles = StyleSheet.create({
     top: '21px',
     right: '7px',
     marginTop: '13px',
-    // zIndex: '100',
+    zIndex: '100',
     '@media (max-width: 900px)': {
       width: '100%',
       padding: '0px',
