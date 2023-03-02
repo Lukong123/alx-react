@@ -9,14 +9,15 @@ import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBot
 import { getLatestNotification } from '../utils/utils';
 import PropTypes from 'prop-types';
 import { StyleSheet, css} from 'aphrodite';
+import {user, AppContext} from './AppContext';
 
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.isLoggedIn = props.isLoggedIn;
-    this.logOut = props.logOut;
+    this.logIn = this.logIn.bind(this);
+    this.logOut = this.logOut.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.listCourses = [
       {id: 1, name: 'ES6', credit: 60},
@@ -30,11 +31,30 @@ class App extends React.Component {
       {id: 3, html: {__html: getLatestNotification()}, type: "urgent"},
     ];
     this.state = {
-      displayDrawer: false
+      displayDrawer: false,
+      user: user,
+      logOut: this.logOut
     };
+    
     this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
     this.handleHideDrawer = this.handleHideDrawer.bind(this);
 
+  }
+
+  logIn(email, password) {
+    this.setState({
+      user: {
+        email,
+        password,
+        isLoggedIn: true
+      }
+    });
+  }
+
+  logOut() {
+    this.setState({
+      user: user
+    });
   }
 
   handleDisplayDrawer() {
@@ -68,6 +88,10 @@ class App extends React.Component {
 
   render() {
     return (
+      <AppContext.Provider value={{
+        user: this.state.user,
+        logOut: this.state.logOut
+      }}>
     <React.Fragment>
       <Notification
        listNotifications={this.listNotifications}
@@ -77,7 +101,7 @@ class App extends React.Component {
         />
     <div className={css(bodyStyles.App)}>
       <Header />
-      {this.props.isLoggedIn ? 
+      {this.state.user.isLoggedIn ? 
       <BodySectionWithMarginBottom title='Course list'><CourseList  listCourses={this.listCourses}/></BodySectionWithMarginBottom>
       :
       <BodySectionWithMarginBottom title='Log in to continue'><Login /></BodySectionWithMarginBottom>
@@ -90,6 +114,7 @@ class App extends React.Component {
       </div>
     </div>
     </React.Fragment>
+    </AppContext.Provider>
   );}
 }
 
@@ -110,14 +135,5 @@ const footerStyles = StyleSheet.create({
   }
 })
 
-App.defaultProps = {
-  isLoggedIn: false,
-  logOut: () => {}
-};
-
-App.propTypes = {
-  isLoggedIn: PropTypes.bool,
-  logOut: PropTypes.func
-};
 
 export default App;
