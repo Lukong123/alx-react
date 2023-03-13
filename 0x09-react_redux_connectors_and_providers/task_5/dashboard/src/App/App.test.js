@@ -11,13 +11,15 @@ import { createStore } from 'redux';
 import { uiReducer } from '../reducers/uiReducer';
 import { Provider } from 'react-redux';
 
+import thunk from 'redux-thunk';
+import fetchMock from 'fetch-mock';
 
-const mockStore = configureStore([]);
+fetchMock.mock('*', 200);
+const mockStore = configureStore([thunk]);
 
-describe('App Component', () => {
-
-    let wrapper;
-    let store;
+describe('Test App.js', () => {
+  let wrapper;
+  let store;
 
   beforeEach(() => {
     StyleSheetTestUtils.suppressStyleInjection();
@@ -48,9 +50,36 @@ describe('App Component', () => {
 
 describe('Testing mapStateToProps', () => {
   it('test that verify that the function returns the right object', () => {
-    let state = fromJS({
-      isUserLoggedIn: true
-    });
+    let state = {
+      ui: fromJS({
+        isUserLoggedIn: true,
+      }),
+    };
     expect(mapStateToProps(state)).toEqual(expect.objectContaining({ isLoggedIn: true }));
+  });
+});
+
+describe("Testing rootReducer", () => {
+  it("mapStateToProps returns the right object from user Login", () => {
+    let state = {
+      ui: fromJS({
+        isUserLoggedIn: true,
+      }),
+    };
+
+    const result = mapStateToProps(state);
+
+    expect(result).toEqual({ isLoggedIn: true });
+  });
+  it("mapStateToProps returns the right object from display Drawer", () => {
+    let state = {
+      ui: fromJS({
+        isNotificationDrawerVisible: true,
+      }),
+    };
+
+    const result = mapStateToProps(state);
+
+    expect(result).toEqual({ displayDrawer: true });
   });
 });
