@@ -2,7 +2,7 @@ import { Seq } from 'immutable';
 
 export default function printBestStudents(obj) {
   const seq = Seq(obj);
-  const students = seq.filter((val) => val.score > 70).toJS;
+  const students = seq.filter((val) => val.score > 70).toJS();
 
   Object.keys(students).map((key) => {
     const first_name = students[key].firstName;
