@@ -171,3 +171,99 @@ The function displayNotificationDrawer will create the action with the type DISP
 The function hideNotificationDrawer will create the action with the type HIDE_NOTIFICATION_DRAWER
 Test the action creators:
 In a file named uiActionCreators.test.js, write a test for each of the action creator you wrote previously.
+
+### 5.Course action for the notificatins list
+Copy dashboard from the task_4 directory into task_5
+
+Create the action types
+In src/actions/notificationActionTypes.js, create two action types:
+
+MARK_AS_READ
+SET_TYPE_FILTER
+Create the filter states
+In src/actions/notificationActionTypes.js, create a constant named NotificationTypeFilters, that will contain the two filter states:
+
+DEFAULT
+URGENT
+They will be used when the user interacts with the notification drawer
+
+Create the action creator
+Import the action types you just created in src/actions/notificationActionTypes.js
+
+In a file named notificationActionCreators.js, create two action creators that will send the two action types we previously created:
+
+The function markAsAread will accept index as argument
+The function setNotificationFilter will accept filter as argument
+Test the action creators
+Import the action types, NotificationTypeFilters, and the action creators into src/actions/notificationActionCreators.test.js
+
+In this file, write a test for the markAsAread action. Calling the creator with 1 as an argument should return:
+
+{
+  type: MARK_AS_READ,
+  index: 1
+}
+Write a test for the setNotificationFilter action. Calling the creator with one of the filters from NotificationTypeFilters as an argument should return:
+
+{
+  type: SET_TYPE_FILTER,
+  filter: "DEFAULT"
+}
+
+
+### 6.Bound the actions
+Modify the Course actions creators:
+
+bound the selectCourse action creator
+bound the unSelectCourse action creator
+Modify the Notification actions creators:
+
+bound the markAsAread action creator
+bound the setNotificationFilter action creator
+Modify the UI actions creators:
+
+bound the login action creator
+bound the logout action creator
+bound the displayNotificationDrawer action creator
+bound the hideNotificationDrawer action creator
+
+### 7. Async Action creators
+Set up Redux and Redux Thunk
+
+Install redux and redux-thunk in your project
+
+Simulate an API
+
+Copy the file login-success.json into the dist folder. You can do the same with the notifications.json file as well now
+
+These files will be available on the web server and will be your own API
+
+Create the first Async Action Creator
+
+Modify the file named uiActionTypes.js, add two action types:
+
+LOGIN_SUCCESS
+LOGIN_FAILURE
+Modify the uiActionCreators file:
+
+Create a loginSuccess action creator, that will return the previously created type
+Create a loginFailure action creator, that will return the previously created type
+Create a loginRequest function that takes into argument the email and password of the user:
+
+the function should dispatch the login action using the action creator previously created
+the function should fetch the API /login-success.json and if it succeeds, dispatch the loginSuccess action
+if the API fails, dispatch the loginFailure action
+Write the tests
+
+In the file uiActionCreators.test.js, write a test suite for the loginRequest action:
+
+the first test should verify that if the API returns the right response, the store received two actions LOGIN and LOGING_SUCCESS
+the first test should verify that if the API query fails, the store received two actions LOGIN and LOGIN_FAILURE
+Tips:
+
+You can use node-fetch to query an API
+You can install redux-mock-store and fetch-mock to simular the API and simulate the store
+With fetch-mock, you can use getOnce and get to simulate success and failures
+Requirements:
+
+All the tests in the project should pass
