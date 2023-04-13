@@ -92,3 +92,37 @@ in task_2/dashboard/src/Notifications.js in the Notifications div:
 - style the notification priorities using their data attribute: set the color of default items to blue, and the color of urgent items to red.
 **Requirements:**
 - When running, there should not be any lint error in the console
+
+### TASK 4 (create basic test with four test)
+**in task_3/dashboard/src/utils.test.js:
+
+- Write a test to check that the function getFullYear returns the correct year (be careful to not create a time bomb)
+- Write a test to check that getFooterCopy returns the correct string when the argument is true or false
+- Write a test checking the returned string for getLatestNotification
+### Task 5 (Install Enzyme)
+**Install Enzyme with npm
+- Create a file named setupTests.js and configure the adapter for Enzyme
+
+### Task 6 (Create React Test)
+**in task_3/dashboard/src/App.test.js create four tests:
+
+- test that App renders without crashing
+- verify that App renders a div with the class App-header
+- verify that App renders a div with the class App-body
+- verify that App renders a div with the class App-footer
+**in task_3/dashboard/src/Notifications.test.js create three tests
+
+- test that Notifications renders without crashing
+- verify that Notifications renders three list items
+- verify that Notifications renders the text Here is the list of notifications
+**Requirements:
+
+- When running the test suites, you should see the following result
+- You must use shallow rendering to write the React tests
+> Test Suites: 3 passed, 3 total
+> Tests: 11 passed, 11 total
+
+### Task 7 (Deploy to github page)
+**Deploy your application to GitHub Pages using gh-pages branch and create-react-app
+
+- Your application should be working correctly when accessing the GitHub URL.
