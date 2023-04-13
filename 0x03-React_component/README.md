@@ -82,3 +82,25 @@ Make sure to bind the function markAsRead in your constructor to avoid unecessar
 In the test file, make sure to restore the console function you mocked
 At this point, reloading the App should display the exact same page as the last task. Use the React Chrome Extension to make sure the Notifications component displays correctly
 The console in your browser should not show any error or warning
+
+### 3. Reusable components
+Containment
+
+Create a new component named BodySection. The component does not know its children. It should output the following:
+
+A div with the class bodySection
+Within the div, a h2 element containing a title passed as a prop
+Under the h2 the children of BodySection
+Tips:
+
+Rendering the following
+
+<BodySection title="test">
+  <p>test</p>
+</BodySection>
+Should generate:
+
+<div className="bodySection">
+  <h2>test</h2>
+  <p>test</p>
+</div>
