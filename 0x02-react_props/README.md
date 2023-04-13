@@ -152,4 +152,8 @@ Modify the Notifications.test.js file to change one of the check:
 
 - At this point, reloading the App should display the exact same page as the last task
 - The console in your browser should not show any error or warning
+### 3. Checking React extension
+Using the React extension in Chrome:
 
+Modify the type of the first NotificationItem to change from “default” to “urgent”. The first notification should change color to red, take a screenshot
+Profile the load of the application and note which Component is the longest to render after App, take a screenshot
