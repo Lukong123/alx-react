@@ -209,4 +209,88 @@ Modify the notifications object to have the right initial state when merging the
 Create a SET_LOADING_STATE case and update the state accordingly
 Modify the FETCH_NOTIFICATIONS_SUCCESS case to perform a mergeDeep with the data
 
-### 20. 
+### 20. connect notifications: clean up
+With this new behavior, let’s clean up old functions and test data
+
+Delete NotificationItemShape.js
+Remove the notification list and delete markNotificationAsRead within App.js
+
+
+### 21. Connect notifications: update test suite
+Modify the test suites to pass the tests:
+
+Update notificationReducer.test.js to support the new attributes and default state
+Clean up App.test.js for the function you just removed
+Modify Notifications.js and Notifications.test.js to make sure that every tests pass correctly
+Add new tests:
+
+Add a test in Notifications.test.js to verify that the function fetchNotifications is called when the component is mounted
+Add a test for setLoadingState, setNotifications, and fetchNotifications to verify that they each create the right actions
+Add a test for SET_LOADING_STATE to verify that it updates the reducer correctly
+Tips:
+
+At this point, when you load the page, you should be able to see the list of notifications coming from the API using the developer tools or when clicking on the notifications toggle
+Use some CSS to make the notifications panel readable
+Look at valueSeq from Immutable to iterate on your list of notifications without having to use toJS()
+Requirements:
+
+Make sure to update the different Proptypes so you don’t have any errors in the console
+Make sure to create the new actions that the action creators are using
+
+### 22. Selectors
+To improve performance in your connector, you should always use selectors when you can. Let’s modify the Notifications connector to reuse the selector we built in the previous project:
+
+Update Notifications.js to use getUnreadNotifications
+Map the markAsAread action creator to the component, and use it for markNotificationAsRead
+Tips:
+
+At this point, when you load the page, you should be able to see the list of notifications. Clicking on one notification should make it disappear from the list
+Requirements:
+
+Make sure to update the selector to use the same valueSeq you created previously
+Make sure to update the tests to work as expected
+Make sure to create the new actions that the action creators are using
+
+### 23. Create coures: course selector
+In selectors/courseSelector.js, create a selector that will:
+
+Get all the course entities from within the reducer
+Return a List using valueSeq from Immutable
+Write a new file courseSelector.test.js, that will verify that the selector is working correctly
+
+### 23. Connect courses create a fetch courses function
+In actions/courseActionCreators.js:
+
+Create a new function named fetchCourses, that will query the API in courses.json (provided in the project description, put it in your dist folder)
+When the API returns the data, dispatch the action setCourses
+In courseActionCreators.test.js, create a test to verify that the fetch is working correctly
+
+### 25. Connect Course component
+In CourseList.js, connect the component to:
+
+The three action creators: fetchCourses, selectCourse, and unSelectCourse
+Connect the data to the list of courses using getListCourses selector
+When the component mount, call the action fetchCourses
+Create a new function onChangeRow:
+
+It will take two arguments: id (string), checked (boolean)
+When checked is true, call the action selectCourse with the id
+When checked is false, call the action unSelectCourse with the id
+Modify CourseListRow:
+
+Pass a new prop, isChecked, to the component that will pass the isSelected attribute coming from the state of the reducer
+Pass the onChangeRow function to the component
+Modify the component to not use its local state anymore
+In the file CourseList.test.js, create two new tests:
+
+Verify that the action is dispatched when the component is mounted
+Verify that the two actions are correctly dispatched when the onChangeRow function is called
+Tips:
+
+At this point, when you load the page and you log in, you should be able to see the list of courses. Make sure that everything is working correctly using the developer tools or using the Redux tool
+When checking or unchecking a row, you should see the state in the Redux tool updated. You should also see the change on the UI
+Be careful that the API is sending Strings instead of Number for the IDs. You will probably need to adapt your reducers and tests
+Delete the CourseShape file now
+Requirements:
+
+Make sure to update the tests to work as expected
