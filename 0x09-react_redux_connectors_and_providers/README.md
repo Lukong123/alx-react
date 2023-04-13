@@ -150,4 +150,63 @@ Tips:
 Read the documentation of the extension to learn how to support the Chrome extension as well as the Thunk middleware
 This extension can be one of the most powerful tool to debug an application. Make sure to become familiar with it
 
-### 14. 
+### 14. Combine Store root reducer
+Since you have more than one reducer for your application, you will need to combine them into the store.
+
+Create a new file reducers/rootReducer.js, in this file, export a rootReducer:
+
+the root should contain every reducer
+courses maps to courseReducer
+notifications maps to notificationReducer
+ui maps to uiReducer
+
+### 15. combine store modify the application
+n the index.js, create the store using the root reducer instead of only the ui reducer:
+
+Any component connected to the state will probably need to be updated since you added a nested level
+
+### 16. combine stoe: write the tests
+Modify the test suites:
+
+In the App.test.js, modify mapStateToProps to correctly work with the new format of the reducer
+Create a rootReducer.test.js file to test the root reducer’s initial state for the following structure:
+{
+  courses: Map {},
+  notifications: Map {},
+  ui: Map {}
+}
+Requirements:
+
+No errors in the browser’s console
+All tests should pass
+Use combineReducer to create the root reducer
+
+### 17. connect notifications: new action creater
+We now know how to connect a simple component to a reducer. Let’s work on connecting a more complex component to the the entire API.
+
+Add the following three action creators to notificationActionCreators.js
+
+setLoadingState whose parameter is a boolean. It will send the SET_LOADING_STATE action and the boolean.
+setNotifications whose parameter is an array. It will send the FETCH_NOTIFICATIONS_SUCCESS action with the data.
+fetchNotifications (which does not have a parameter). Calling it will dispatch setLoadingState with the boolean set to true
+It fetches /notifications.json
+Once the fetch is realized, it will dispatch setNotifications with the data
+At the end of the query it sets the loading state to false again
+
+### 18. Connect notification: improve reducer
+In the function notificationReducer within notificationReducer.js:
+
+Make sure to add a loading attribute to the initial state.
+Modify the notifications object to have the right initial state when merging the data coming from the API
+Create a SET_LOADING_STATE case and update the state accordingly
+Modify the FETCH_NOTIFICATIONS_SUCCESS case to perform a mergeDeep with the data
+
+### 19. Connect notificatin to reducer
+In the function notificationReducer within notificationReducer.js:
+
+Make sure to add a loading attribute to the initial state.
+Modify the notifications object to have the right initial state when merging the data coming from the API
+Create a SET_LOADING_STATE case and update the state accordingly
+Modify the FETCH_NOTIFICATIONS_SUCCESS case to perform a mergeDeep with the data
+
+### 20. 
