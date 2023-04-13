@@ -1,9 +1,9 @@
 ## React immutable
 ### Resources
 
-- [Immutable Object concept]
-- [Immutable.js Documentation]
-- [Immutable.js GitHub]
+- [Immutable Object concept](https://en.wikipedia.org/wiki/Immutable_object)
+- [Immutable.js Documentation](https://immutable-js.com/docs/v4.3.0)
+- [Immutable.js GitHub](https://immutable-js.com/docs/v4.3.0)
 
 ### Learning Objectives
 
