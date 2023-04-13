@@ -85,4 +85,24 @@ Tips:
 At this point your app should be functional and able to display/hide the drawer using the Redux state
 Remember that the state of uiReducer is using Map from Immutable
 
-### 7. 
+### 7. Async actions and thunk middlewear
+Let’s implement the LoginRequest / logout actions creators accross the entire application. LoginRequest is calling an API and is Async. Therefore, Redux will not support it. We will need to use a middleware
+
+Install redux-thunk within your project. And in the index.js file, apply the middleware to your store
+
+### 8. Connect Login request to app
+Modify the file App/App.js:
+
+Connect the action creator loginRequest and map it to the login prop
+Modify the component to use the new login function from the props instead of the one within the class
+Refactor the component to remove any login or logout function and bind
+
+### 9. Connect user to the footer
+Modify the file Footer/Footer.js
+
+Create a mapStateToProps function
+Map the user props to the user within the Redux state
+Connect the Footer component to the function you created
+Modify the render function and remove any use of the Context. Instead use the user prop
+
+### 10. 
