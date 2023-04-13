@@ -106,3 +106,26 @@ Tips:
 
 You can either use conditions or use an array to apply the different styling. Conditions are usually more robust
 Testing might become difficult with the different variations. Look into the Enzyme documentation for render, contains, prop, and html
+
+### 3. Responsive Design
+Let’s make the application responsive to the screen size using media queries. We are going to only focus on large screen and screens with a width under 900px
+
+Modify the component Login in task_3/dashboard/src/Login/Login.js:
+
+Make sure that a label and an input are on each line
+Make sure that the button is on a new line
+The screen should look like the image below:
+Modify the component Notifications in task_3/dashboard/src/Notifications/Notifications.js:
+
+When the panel is open, it should take over the entire screen
+There should be no padding because of the ul element
+The font size of the text should be 20px
+Modify the component NotificationItem in task_3/dashboard/src/Notifications/NotificationItem.js:
+
+The item should take the entire screen width
+A black border should be displayed at the bottom
+The font size of the text should be 20px
+The padding for the item should be 10px 8px
+Requirements:
+
+When the notifications panel is open, the screen should look like the image below:
