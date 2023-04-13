@@ -126,3 +126,48 @@ You should not use Object.keys
 You should not have to modify the test, and the test should pass correctly
 All the tests in the project should pass
 
+### 3. create action for coruse list
+Copy the dashboard folder from the task_2 directory into a directory named task_3
+
+Create a new folder named actions
+
+Create the action types:
+In a file named courseActionTypes.js, create two action types:
+
+SELECT_COURSE
+UNSELECT_COURSE
+They will be used to define if a user selected or unselected a specific course
+
+Create the action creators:
+In a file named courseActionCreators.js, create two action creators that will send the two types we previously created:
+
+The function selectCourse will accept index as argument
+The function unSelectCourse will accept index as argument
+Test the action creators:
+In a file named courseActionCreators.test.js, write a test for the selectCourse action. Calling the creator with 1 as argument should return: { type: SELECT_COURSE, index: 1 }
+
+Write a test for the unSelectCourse action. Calling the creator with 1 as argument should return: { type: UNSELECT_COURSE, index: 1 }
+### 4.Create actions for the UI
+Copy the dashboard folder from task_3 into a directory labeled task_4
+
+In src/actions/uiActionTypes.js, create four action types:
+
+e.g . export const LOGIN = "LOGIN"
+
+Create the action types:
+LOGIN
+LOGOUT
+DISPLAY_NOTIFICATION_DRAWER
+HIDE_NOTIFICATION_DRAWER
+They will be used to define when a user is logging in, logging out, and display / hide the notifications drawer
+
+Create the action creator:
+In a file named uiActionCreators.js, the goal of this section is to create four action creators that will send the four types we previously created. Remember to import all the types from uiActionTypes in this file.
+
+The function login will accept email and password as arguments. It will return the action with LOGIN as a type and the user object:
+{ user : { email, password } }
+The function logout will create the action with the type LOGOUT
+The function displayNotificationDrawer will create the action with the type DISPLAY_NOTIFICATION_DRAWER
+The function hideNotificationDrawer will create the action with the type HIDE_NOTIFICATION_DRAWER
+Test the action creators:
+In a file named uiActionCreators.test.js, write a test for each of the action creator you wrote previously.
