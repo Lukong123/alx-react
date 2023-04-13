@@ -294,3 +294,45 @@ Delete the CourseShape file now
 Requirements:
 
 Make sure to update the tests to work as expected
+### 26. Memorized selecors: redux reselect
+Our current selectors are useful but they are not really performant. Imagine a very long list of notifications with multiple filters on the type and on the read status. This would require a lot of resources to compute. Memoized selectors are very powerful in this sense.
+
+Install Redux Reselect and create a new selector named getUnreadNotificationsByType in notificationSelector.js:
+
+This selector should combine the state of the filter, and the list of notifications
+When the filter is set to default, it should return all the unread notifications
+When the filter is set to urgent, it should return all the unread and urgent notifications
+Delete getUnreadNotifications
+
+### 27 memorize selector update ui
+Update the component to use the new selector you just created
+Map the component to the Action setNotificationFilter
+Add two buttons under the text Here is the list of notifications. The first one contains ‼️. On click, it set the filters of notifications to URGENT. The second one contains 💠. On click, it sets the filter of notifications to DEFAULT
+
+### 28 memorize selector update test suite
+In Notifications.test.js, add two new tests:
+
+Clicking on the first button should call setNotificationFilter with URGENT
+Clicking on the second button should call setNotificationFilter with DEFAULT
+In notificationSelector.test.js:
+
+Update the previous tests to work correctly
+Create a new test to verify that the selector returns unread urgent notifications when the filter is set
+Tips:
+
+At this point, you should be able to load the notifications panel, filter the list using the two new buttons, and mark items as read
+Requirements:
+
+Make sure to update the tests to work as expected
+
+### 29. Container/component
+Our components can become very verbose when we start adding connectors and actions. It is also becoming harder to tests what is supposed to be our React component, and the interations of the application. To simplify our architecture, we can use the concept of containers and components:
+
+Create a new file NotificationsContainer.js. This component will take care of connecting to the state, and fetching the notifications on mount
+The component should render the Notifications components and pass the required props to it
+Modify the file Notifications.js. It should now become a functional component
+Create a new test file for NotificationsContainer.js. It should make sure the fetching is happening on mount
+Modify Notifications.test.js file to only support the new behavior of the file
+Tips:
+
+No need to repeat every single prop, you can use the spread operator
