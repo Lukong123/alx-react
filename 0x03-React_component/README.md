@@ -126,3 +126,33 @@ Wrap the CourseList component with the newly created BodySectionWithMarginBottom
 Wrap the Login component with the newly created BodySectionWithMarginBottom component. The title should be Log in to continue
 Using the BodySection component, add a new block with the title News from the School. The component should contain a paragraph with some random text
 
+### 6. Test new components
+in task_3/dashboard/src/BodySection/BodySection.test.js:
+
+Add one test checking that shallowing the component should render correctly the children and one h2 element
+E.g. with the following code:
+
+<BodySection title="test title">
+  <p>test children node</p>
+</BodySection>
+You should check that:
+
+There is one h2 element and it includes the text test title
+There is one p element and it includes the text test children node
+in task_3/dashboard/src/BodySection/BodySectionWithMarginBottom.test.js:
+
+Add one test checking that shallowing the component should render correctly a BodySection component and that the props are passed correctly to the child component
+Requirements:
+
+Make sure that the CSS is correctly applied to your component
+The console in your browser should not show any error or warning
+
+### 7. Create withLoging HOC
+We would like to add a way to log to the console every time a component has been mounted and every time it is about to unmount.
+
+To not repeat the same code everywhere, create a HOC component in task_4/dashboard/src/HOC/WithLogging.js:
+
+The component should log to the console Component NAME_OF_THE_WRAPPED_COMPONENT is mounted on componentDidMount()
+The component should log to the console Component NAME_OF_THE_WRAPPED_COMPONENT is going to unmount on componentWillUnmount()
+Modify the displayName of the HOC to always display WithLogging(NAME_OF_THE_WRAPPED_COMPONENT) in the React Chrome Extension or for debugging
+NAME_OF_THE_WRAPPED_COMPONENT should be the name of the wrapped component or class. If the wrapped element has no name it should default to Component
