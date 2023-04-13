@@ -104,3 +104,25 @@ Should generate:
   <h2>test</h2>
   <p>test</p>
 </div>
+
+### 4.Specialization
+in task_3/dashboard/src/BodySection/BodySectionWithMarginBottom.js, create a new component named BodySectionWithMarginBottom. The component does not know its children. It should output the following:
+
+A div with the class bodySectionWithMargin
+Within the div, a BodySection element with the same props passed to bodySectionWithMargin
+in task_3/dashboard/src/BodySection/BodySectionWithMarginBottom.css
+
+Set the style for the class bodySectionWithMargin with a margin bottom of 40px
+Import the styling into the BodySectionWithMarginBottom component
+Requirements:
+
+Make sure to define the propTypes for both props
+Do not repeat each props manually and use the spread operator
+
+### 5. Use new components
+in task_3/dashboard/src/App/App.js, modify the App component:
+
+Wrap the CourseList component with the newly created BodySectionWithMarginBottom component. The title should be Course list
+Wrap the Login component with the newly created BodySectionWithMarginBottom component. The title should be Log in to continue
+Using the BodySection component, add a new block with the title News from the School. The component should contain a paragraph with some random text
+
