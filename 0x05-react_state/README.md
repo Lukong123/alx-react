@@ -158,3 +158,46 @@ Be careful that Context is using reference identity to determine when to re-rend
 Don’t forget to export elements that are going to be reused through the app (e.g default user)
 Don’t forget to clean unused state and props after refactoring
 Don’t forget to set the propTypes and defaultProps for any new prop
+
+### 3.Context Consumer and Advanced State
+Context consumer: modify the Footer component in task_3/dashboard/src/Footer/Footer.js
+
+Without making the component a Class, make the component subscribe to the context changes
+When the user is logged in, display a new paragraph containing a link with the text Contact us
+Modify the test suite in task_3/dashboard/src/Footer/Footer.test.js:
+
+Refactor the test to make them work correctly with the changes
+Add a test to verify that the link is not displayed when the user is logged out within the context
+Add a test to verify that the link is displayed when the user is logged in within the context
+Advanced state: modify the App container in task_3/dashboard/src/App/App.js:
+
+Set the listNotifications within the state
+Create a function markNotificationAsRead. It accepts an id (number) in argument. When the function is called, it remove the notification with that id from the list of notifications within the state
+Pass the list of notifications to the Notifications component using the state
+Pass the newly created function to the Notifications component
+Modify the test suite in task_3/dashboard/src/App/App.test.js:
+
+Add a test to verify that markNotificationAsRead works as intended. You can for example set the state with a mock list of notifications, then call the function and verify that the state of the container has been updated correctly
+Modify the Notifications container in task_3/dashboard/src/Notifications/Notifications.js:
+
+Refactor the code to delete the function markAsRead, we can now use the real one
+Refactor the code to delete the shouldComponentUpdate, the component is only using prop and state, and you should be able to optimize the performance with PureComponent
+Use the newly created function markNotificationAsRead to mark a notification as read
+Define the prop type and the default for markNotificationAsRead
+Modify the test suite in task_3/dashboard/src/Notifications/Notifications.test.js:
+
+Refactor the tests to match the new container
+Checkpoint
+
+Take a moment to test your application. At this point:
+
+When you log in, you should be able to see a new footer
+When you display the panel of notifications, you should each of them disappear on click
+Tips:
+
+If you end up having to reuse mock data a lot, feel free to export and import the same mockup from the same file
+Requirements:
+
+Don’t forget to clean unused state and props after refactoring
+Don’t forget to set the propTypes and defaultProps for any new prop
+
