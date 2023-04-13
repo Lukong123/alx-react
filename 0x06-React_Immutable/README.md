@@ -181,3 +181,49 @@ const page1 = {
 Requirements
 
 use Map from immutable.js
+
+### 7.Equality
+Create a function named areMapsEqual
+
+It accepts two arguments map1 and map2. Both are Immutable.js Maps
+It should return true if the Maps are equal
+Example:
+
+const map1 = new Map(
+  {
+    firstName: 'Guillaume',
+    lastName: 'Salva',
+  }
+);
+const map2 = new Map(
+  {
+    firstName: 'Guillaume',
+    lastName: 'Salva',
+  }
+);
+
+areMapsEqual(map1, map2);
+Should return true
+
+Requirements:
+
+Use is from the immutable.js library
+
+### 8.Lazy seq
+Create a function named printBestStudents:
+
+It accepts one object as argument. The object is formed with the following structure:
+const grades = {
+  1: {
+    score: 99,
+    firstName: 'guillaume',
+    lastName: 'salva',
+  }
+};
+Calling the function should filter any student with a score < 70 and print to the console the first name and the last name with the first letter capitalized:
+{
+    "1": { score: 99, firstName: "Guillaume", lastName: "Salva" },
+}
+Requirements:
+
+Uses seq from immutable.js
